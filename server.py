@@ -20,7 +20,7 @@ s.bind((SERVER_HOST, SERVER_PORT))
 s.listen(5)
 print(f"[*] Listening as {SERVER_HOST}:{SERVER_PORT}")
 
-# Accept connection if there is any 
+# Accept connection if there is any
 client_socket, address = s.accept()
 print(f"[+] {address} is connected.")
 

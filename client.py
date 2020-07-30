@@ -2,12 +2,12 @@ import socket
 import tqdm
 import os
 
-SEPARATOR = "<SEOARATOR>"
+SEPARATOR = "<SEARATOR>"
 BUFFER_SIZE = 4096 # send 4096 bytes each time step
 
 # the ip address or hostname of server
 host = "1.1.1.1"
-port 5001
+port = 5001
 
 # Set file name
 filename = "message.txt"
