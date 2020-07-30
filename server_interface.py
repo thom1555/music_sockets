@@ -25,7 +25,7 @@ class music:
         Send file to all devices in cluster
         """
         for ip in self.ip_addr:
-            file_send.send_file(ip_addr, port, filepath)
+            file_send.send_file(self.ip_addr[0], self.port, filepath)
 
 
     def change_port(self, port):
@@ -62,7 +62,7 @@ class music:
 
             else:
                 # Select file to send
-                pass
+                self.transmit_file('./example_files/message.txt')
 
         return True
         
