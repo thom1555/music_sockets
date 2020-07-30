@@ -3,6 +3,24 @@ Command Line Interface for music distribution
 """
 
 import os
+import file_send
+
+class music:
+    """
+    Object to maintain program
+    """
+    def __init__(self):
+        self.ip_addr = ["192.168.50.161"]
+        self.port = 5001
+
+    def transmit_file(self):
+        """
+        Send file to all devices in cluster
+        """
+        for ip in self.ip_addr:
+        file_send.send_file(ip_addr, port, filename):
+
+            pass
 
 
 def cli():
