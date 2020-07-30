@@ -40,5 +40,5 @@ def send_file(ip_addr, port, filename):
     # close socket
     s.close()
 
-send_file("192.168.50.161", 5001, "./example_files/UMVPN-4.8.03052.tar.gz")
+#send_file("192.168.50.161", 5001, "./example_files/UMVPN-4.8.03052.tar.gz")
 
