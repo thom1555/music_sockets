@@ -63,6 +63,4 @@ def listen(server_host, server_port):
     recv_socket.close()
 
 
-server_host = "0.0.0.0"
-server_port = 5001
-listen(server_host, server_port)
+listen("0.0.0.0", 5001)

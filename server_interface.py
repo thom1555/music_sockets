@@ -4,10 +4,11 @@ Command Line Interface for music distribution
 
 from os import listdir, system
 from os.path import isfile, join
+import sys
 import file_send
 
 
-class music:
+class Music:
     """
     Object to maintain program
     """
@@ -24,8 +25,8 @@ class music:
         """
         Send file to all devices in cluster
         """
-        for ip in self.ip_addr:
-            file_send.send_file(self.ip_addr[0], self.port, filepath)
+        for address in self.ip_addr:
+            file_send.send_file(address, self.port, filepath)
 
 
     def change_port(self, port):
@@ -65,7 +66,7 @@ class music:
                 self.transmit_file('./example_files/message.txt')
 
         return True
-        
+
 
     def cli(self):
         """
@@ -91,11 +92,11 @@ class music:
 
             elif command == 'exit':
                 print('Shutting down...')
-                exit()
+                sys.exit()
 
             else:
-                os.system(command)
+                system(command)
 
 
-program = music()
+program = Music()
 program.cli()
