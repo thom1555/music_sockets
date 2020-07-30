@@ -2,15 +2,16 @@ import socket
 import tqdm
 import os
 
-SEPARATOR = "<SEARATOR>"
+# Define constants
+SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096 # send 4096 bytes each time step
 
 # the ip address or hostname of server
-host = "1.1.1.1"
+host = "192.168.50.161"
 port = 5001
 
 # Set file name
-filename = "message.txt"
+filename = "UMVPN-4.8.03052.tar.gz"
 # Get file size
 filesize = os.path.getsize(filename)
 
