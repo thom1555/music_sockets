@@ -19,7 +19,8 @@ class Music:
         Port to communicate over
         """
         self.ip_addr = ["192.168.50.66"]
-        self.port = 5001
+        self.file_port = 5001
+        self.comm_port = 6001
 
 
     def transmit_file(self, filepath):
@@ -27,7 +28,7 @@ class Music:
         Send file to all devices in cluster
         """
         for address in self.ip_addr:
-            file_send.send_file(address, self.port, filepath)
+            file_send.send_file(address, self.file_port, filepath)
 
 
     def change_port(self, port):
@@ -36,7 +37,7 @@ class Music:
         """
         for address in self.ip_addr:
             sending_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sending_socket.connect((address, self.port))
+            sending_socket.connect((address, self.comm_port))
             sending_socket.msg('Test Message')
             sending_socket.close()
 
