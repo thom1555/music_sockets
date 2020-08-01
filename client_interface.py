@@ -4,7 +4,7 @@ Daemon to run on client devices
 Recieve both messages and files
 """
 
-import recv
+import recv_file
 
 
 class Client:
@@ -24,7 +24,7 @@ class Client:
         """
         Listen on the file sharing socket
         """
-        recv.listen(self.ip_addr, self.file_port)
+        recv_file.listen(self.ip_addr, self.file_port)
 
         return True
 

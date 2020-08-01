@@ -7,7 +7,7 @@ from os.path import isfile, join
 import socket
 import sys
 import syslog
-import file_send
+import send_file
 
 
 def log(msg, level):
@@ -51,7 +51,7 @@ class Music:
         Send file to all devices in cluster
         """
         for address in self.ip_addr:
-            file_send.send_file(address, self.file_port, filepath)
+            send_file.send_file(address, self.file_port, filepath)
 
 
     def change_port(self, port):
