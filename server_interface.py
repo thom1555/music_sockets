@@ -6,7 +6,29 @@ from os import listdir, system
 from os.path import isfile, join
 import socket
 import sys
+import syslog
 import file_send
+
+
+def log(msg, level):
+    """
+    Send a message to the music.log file
+    """
+    if level == 'debug':
+        syslog.syslog(syslog.LOG_LOCAL6 | syslog.LOG_DEBUG, msg)
+
+    elif level == 'info':
+        syslog.syslog(syslog.LOG_LOCAL6 | syslog.LOG_INFO, msg)
+
+    elif level == 'error':
+        syslog.syslog(syslog.LOG_LOCAL6 | syslog.LOG_ERR, msg)
+
+    elif level == 'warning':
+        syslog.syslog(syslog.LOG_LOCAL6 | syslog.LOG_WARNING, msg)
+
+    else:
+        print('Error with log message ', msg)
+        print('Cannot syslog at that level...')
 
 
 class Music:
@@ -21,6 +43,7 @@ class Music:
         self.ip_addr = ["192.168.50.66"]
         self.file_port = 5001
         self.comm_port = 6001
+
 
 
     def transmit_file(self, filepath):
@@ -38,7 +61,7 @@ class Music:
         for address in self.ip_addr:
             sending_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sending_socket.connect((address, self.comm_port))
-            sending_socket.msg('Test Message')
+            sending_socket.send(port)
             sending_socket.close()
 
         return True
@@ -83,6 +106,8 @@ class Music:
         print("-------------")
         print("Music Sockets")
         print("-------------")
+
+        log('Startup music sockets', 'debug')
 
         while True:
             # Take input from user
